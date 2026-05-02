@@ -3,62 +3,443 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perth Malayalee Islamic Association WA Inc</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Perth Malayalee Islamic Association WA INC</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Variables for Color Scheme */
+        :root {
+            --bg-gold: #d8c381;
+            --bg-white: #ffffff;
+            --text-dark: #111111;
+            --font-main: 'Montserrat', sans-serif;
+            --font-heading: 'Playfair Display', serif;
+            --font-cursive: 'Dancing Script', cursive;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--bg-white);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            letter-spacing: 2px;
+        }
+
+        header h1 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--bg-gold);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .logo-placeholder {
+            background-color: var(--bg-white);
+            width: 300px;
+            height: 300px;
+            margin: 0 auto 40px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            font-family: var(--font-heading);
+            color: #ccc;
+        }
+
+        .logo-placeholder img {
+            max-width: 100%;
+            height: auto;
+            display: none; /* Change to block when real logo is added */
+        }
+
+        .welcome-text {
+            font-family: var(--font-heading);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            background-color: var(--bg-white);
+            padding: 20px;
+            margin-top: -80px; /* Overlap effect */
+            position: relative;
+            z-index: 10;
+        }
+
+        /* About Us Section */
+        .about {
+            background-color: var(--bg-gold);
+            padding: 60px 20px;
+        }
+
+        .section-title-cursive {
+            font-family: var(--font-cursive);
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: normal;
+        }
+
+        .about-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 50px;
+            gap: 40px;
+        }
+
+        .about-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .about-image {
+            flex: 1;
+            background-color: #ddd;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-text {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-text h3 {
+            font-family: var(--font-heading);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .about-text p {
+            font-size: 0.9rem;
+        }
+
+        /* Connect Section */
+        .connect {
+            background-color: var(--bg-white);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .connect p {
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+
+        .connect-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+
+        .connect-form input[type="email"] {
+            border: none;
+            outline: none;
+            padding: 10px;
+            width: 100%;
+            font-family: var(--font-main);
+        }
+
+        .connect-form button {
+            background: transparent;
+            border: 1px solid var(--text-dark);
+            padding: 10px 30px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            transition: 0.3s;
+        }
+
+        .connect-form button:hover {
+            background: var(--text-dark);
+            color: var(--bg-white);
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--bg-gold);
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-bg-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: var(--font-cursive);
+            font-size: 15vw;
+            color: rgba(0, 0, 0, 0.05);
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .contact-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact h3 {
+            font-family: var(--font-heading);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1rem;
+            margin-bottom: 40px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--text-dark);
+            padding: 10px 0;
+            font-family: var(--font-main);
+            outline: none;
+            resize: none;
+        }
+
+        .contact-form button {
+            background: transparent;
+            border: 1px solid var(--text-dark);
+            padding: 10px 40px;
+            align-self: center;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+
+        .contact-form button:hover {
+            background: var(--text-dark);
+            color: var(--bg-white);
+        }
+
+        .recaptcha-text {
+            font-size: 0.7rem;
+            margin-bottom: 40px;
+        }
+
+        .address-info {
+            margin-top: 50px;
+        }
+
+        .address-info h4 {
+            font-family: var(--font-heading);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .address-info p {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-white);
+            padding: 30px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .about-row, .about-row.reverse {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .about-image {
+                width: 100%;
+            }
+
+            .connect-form {
+                flex-direction: column;
+                border-bottom: none;
+            }
+
+            .connect-form input[type="email"] {
+                border-bottom: 1px solid #ccc;
+                margin-bottom: 15px;
+            }
+
+            footer {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .contact-bg-text {
+                font-size: 4rem;
+            }
+        }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body>
 
-    <!-- Navigation -->
-    <nav class="bg-white shadow-sm p-4 sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <h1 class="text-xl font-bold text-teal-700">PMIA WA Inc</h1>
-            <div class="space-x-6 text-sm font-medium">
-                <a href="#about" class="hover:text-teal-600">About</a>
-                <a href="#contact" class="hover:text-teal-600">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="bg-teal-800 text-white py-20 px-6 text-center">
-        <h2 class="text-4xl md:text-5xl font-bold mb-4">Perth Malayalee Islamic Association</h2>
-        <p class="text-xl opacity-90">Supporting community, welfare, and integration in WA.</p>
+    <!-- Header -->
+    <header>
+        <h1>Perth Malayalee Islamic<br>Association WA INC</h1>
     </header>
 
-    <!-- About Section -->
-    <section id="about" class="py-16 px-6 max-w-4xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-12">
-            <div>
-                <h3 class="text-2xl font-semibold mb-4">Our Mission</h3>
-                <p class="leading-relaxed">We work towards the upliftment and integration of Malayalee Muslims in all aspects of life in Western Australia, Insha Allah.</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="logo-placeholder">
+            <span>[Logo Placeholder]</span>
+            <!-- Insert your logo image here -->
+            <img src="pmia-logo.png" alt="PMIA Logo">
+        </div>
+        <div class="welcome-text">
+            Welcome to Perth Malayalee Islamic Association WA INC
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about">
+        <div class="container">
+            <h2 class="section-title-cursive">About Us</h2>
+            
+            <!-- Row 1 -->
+            <div class="about-row">
+                <div class="about-image">
+                    <!-- Placeholder image - replace src -->
+                    <img src="https://via.placeholder.com/500x300/dddddd/888888?text=Hands+Image" alt="Hands raised">
+                </div>
+                <div class="about-text">
+                    <h3>Who Are We</h3>
+                    <p>PMIA is a Not For Profit Association working towards the welfare of all families, students and migrants, primarily from the Malayalam speaking muslim community in WA, Australia.</p>
+                </div>
             </div>
-            <div>
-                <h3 class="text-2xl font-semibold mb-4">Our History</h3>
-                <p class="leading-relaxed">Formed in mid-2019, the association serves as a not-for-profit hub for families, students, and migrants across the region.</p>
+
+            <!-- Row 2 -->
+            <div class="about-row reverse">
+                <div class="about-image">
+                    <!-- Placeholder image - replace src -->
+                    <img src="https://via.placeholder.com/500x300/dddddd/888888?text=Sunset+Image" alt="Sunset with palm trees">
+                </div>
+                <div class="about-text">
+                    <h3>Our History</h3>
+                    <p>The association was officially formed in mid 2013.</p>
+                </div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="about-row">
+                <div class="about-image">
+                    <!-- Placeholder image - replace src -->
+                    <img src="https://via.placeholder.com/500x300/dddddd/888888?text=Lantern+Image" alt="Decorative lantern">
+                </div>
+                <div class="about-text">
+                    <h3>Our Mission</h3>
+                    <p>We work towards the upliftment and integration of Malayalee muslims in all aspects. Insha Allah (God willing).</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact & Footer Section -->
-    <footer id="contact" class="bg-gray-900 text-gray-300 py-16 px-6">
-        <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
-            <div>
-                <h3 class="text-white text-xl font-bold mb-4">Get in Touch</h3>
-                <p>PO Box 4140, Harrisdale WA 6112</p>
-                <div class="mt-4 space-y-2">
-                    <p><i class="fas fa-envelope mr-2"></i> President: president.pmia@gmail.com</p>
-                    <p><i class="fas fa-envelope mr-2"></i> Secretary: secretary.pmia@gmail.com</p>
-                </div>
-            </div>
-            <div>
-                <h3 class="text-white text-xl font-bold mb-4">Stay Connected</h3>
-                <p class="mb-4">Sign up to hear about our events, workshops, and community gatherings.</p>
-                <button class="bg-teal-600 hover:bg-teal-500 text-white px-6 py-2 rounded transition">
-                    Register Interest
-                </button>
+    <!-- Connect Section -->
+    <section class="connect">
+        <div class="container">
+            <h2 class="section-title-cursive" style="margin-bottom: 20px;">Connect with us</h2>
+            <p>Sign up to hear from us about our events, workshops and newsletters.</p>
+            <div class="connect-form">
+                <input type="email" placeholder="Email">
+                <button type="button">Register</button>
             </div>
         </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="contact-bg-text">Contact Us</div>
+        <div class="contact-content">
+            <h3>Drop Us A Line</h3>
+            <form class="contact-form">
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email *">
+                <textarea rows="3" placeholder="Message"></textarea>
+                <button type="button">Send</button>
+            </form>
+            <p class="recaptcha-text">This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.</p>
+
+            <div class="address-info">
+                <h4>Better Yet, See Us In Person!</h4>
+                <p style="margin-bottom: 30px;">We love our members, so feel free to reach out anytime.</p>
+                
+                <h4>Perth Malayalee Islamic Association WA INC</h4>
+                <p>We don't currently have an office space, drop us a line and we will get back to you asap.</p>
+                <p>PO Box 814</p>
+                <p>Maddington WA 6989</p>
+                <p>Australia</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div>Copyright © 2026 PERTH MALAYALEE ISLAMIC ASSOCIATION WA INC - All Rights Reserved.</div>
     </footer>
 
 </body>
